@@ -18,6 +18,6 @@ const getNotes = require("./notes.js");
 // //check url
 // console.log(validator.isURL("example@"));
 
-console.log(chalk.green("Success!"));
+console.log(chalk.green.inverse("Success!"));
 
 // chalk for btter knowing
