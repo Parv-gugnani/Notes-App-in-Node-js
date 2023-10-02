@@ -21,3 +21,5 @@ const getNotes = require("./notes.js");
 console.log(chalk.green.inverse("Success!"));
 
 // chalk for btter knowing
+
+// nodemon is just like sevrer for the termial code
