@@ -1,6 +1,7 @@
 // const add = require("./utils.js");
 // const validator = require("validator");
 const chalk = require("chalk");
+const yargs = require("yargs");
 const getNotes = require("./notes.js");
 // const fs = require("fs");
 // const chalk = require("chalk");
@@ -18,7 +19,7 @@ const getNotes = require("./notes.js");
 // //check url
 // console.log(validator.isURL("example@"));
 
-console.log(chalk.green.inverse("Success!"));
+// console.log(chalk.green.inverse("Success!"));
 
 // chalk for btter knowing
 
@@ -27,10 +28,51 @@ console.log(chalk.green.inverse("Success!"));
 //input frrom user
 // console.log(process.argv[2]);
 
-const command = process.argv[2];
+// if (command === "add") {
+//   console.log("Adding note!");
+// } else if (command === "remove") {
+//   console.log("Removing note!");
+// }
 
-if (command === "add") {
-  console.log("Adding note!");
-} else if (command === "remove") {
-  console.log("Removing note!");
-}
+// const command = process.argv[2];
+
+// console.log(process.argv);
+// console.log(yargs.argv);
+
+yargs.version("1.1.0");
+
+// create
+yargs.command({
+  command: "add",
+  describe: "Add a note",
+  handler: function () {
+    console.log("Adding a new note");
+  },
+});
+// remove comand
+yargs.command({
+  command: "remove",
+  describe: "Remove a note",
+  handler: function () {
+    console.log("Removing a new note");
+  },
+});
+yargs.command({
+  command: "list",
+  describe: "listing a note",
+  handler: function () {
+    console.log("listing a new note");
+  },
+});
+yargs.command({
+  command: "read",
+  describe: "Read a note",
+  handler: function () {
+    console.log("Reading a new note");
+  },
+});
+
+//
+//
+//add
+console.log(yargs.argv);
