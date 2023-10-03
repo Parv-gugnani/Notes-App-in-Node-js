@@ -23,3 +23,14 @@ console.log(chalk.green.inverse("Success!"));
 // chalk for btter knowing
 
 // nodemon is just like sevrer for the termial code
+
+//input frrom user
+// console.log(process.argv[2]);
+
+const command = process.argv[2];
+
+if (command === "add") {
+  console.log("Adding note!");
+} else if (command === "remove") {
+  console.log("Removing note!");
+}
