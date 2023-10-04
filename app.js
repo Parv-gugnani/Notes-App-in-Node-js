@@ -1,8 +1,5 @@
 // const add = require("./utils.js");
 // const validator = require("validator");
-const chalk = require("chalk");
-const yargs = require("yargs");
-const getNotes = require("./notes.js");
 // const fs = require("fs");
 // const chalk = require("chalk");
 
@@ -39,24 +36,30 @@ const getNotes = require("./notes.js");
 // console.log(process.argv);
 // console.log(yargs.argv);
 
+// exp
+
+// code
+
+const chalk = require("chalk");
+const yargs = require("yargs");
+const notes = require("./notes"); // Import your notes module
+
 yargs.version("1.1.0");
 
-// create
+// Create a command to add a note
 yargs.command({
   command: "add",
   describe: "Add a note",
-  builders: {
-    title: { describe: "Note title", demandOptions: true, type: "string" },
-    body: { described: "node body", demandOptions: true, type: "string" },
+  builder: {
+    title: { describe: "Note title", demandOption: true, type: "string" },
+    body: { describe: "Note body", demandOption: true, type: "string" },
   },
   handler: function (argv) {
-    console.log("Title: " + argv.title);
-    console.log("Body:" + argv.body);
+    notes.addNotes(argv.title, argv.body);
   },
 });
 
-// remove comand
-
+// Create a command to remove a note
 yargs.command({
   command: "remove",
   describe: "Remove a note",
@@ -64,13 +67,17 @@ yargs.command({
     console.log("Removing a new note");
   },
 });
+
+// Create a command to list notes
 yargs.command({
   command: "list",
-  describe: "listing a note",
+  describe: "List all notes",
   handler: function () {
-    console.log("listing a new note");
+    console.log("Listing all notes");
   },
 });
+
+// Create a command to read a note
 yargs.command({
   command: "read",
   describe: "Read a note",
@@ -79,7 +86,5 @@ yargs.command({
   },
 });
 
-//
-//
-//add
-console.log(yargs.argv);
+// Parse the command-line arguments
+yargs.parse();
