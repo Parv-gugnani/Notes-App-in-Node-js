@@ -4,14 +4,23 @@ const getNotes = function () {
   return "Your Notes...";
 };
 
+// adding , checking
 const addNotes = function (title, body) {
   const notes = loadNotes();
-
-  notes.push({
-    title: title,
-    body: body,
+  const duplicateNotes = notes.filter(function (note) {
+    return note.title === title && note.body === body;
   });
-  saveNotes(notes);
+  if (duplicateNotes.length === 0) {
+    notes.push({
+      title: title,
+      body: body,
+    });
+    saveNotes(notes);
+    console.log("new notes added");
+  } else {
+    console.log("Note is already added");
+  }
+  // adding // checking if it is already in the notes
 };
 
 const saveNotes = function (notes) {
