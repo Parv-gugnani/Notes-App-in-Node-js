@@ -1,9 +1,9 @@
 const fs = require("fs");
 const chalk = require("chalk");
 
-const getNotes = () => {
-  return "Your Notes...";
-};
+// const getNotes = () => {
+//   return "Your Notes...";
+// };
 
 // adding , checking
 const addNotes = (title, body) => {
@@ -13,6 +13,8 @@ const addNotes = (title, body) => {
   // const duplicateNotes = notes.filter(function (note) {
   //   return note.title === title && note.body === body;
   // });
+
+  console.log(duplicateNote);
 
   // better version of duplicate notes condition much efficient
   if (!duplicateNote) {
