@@ -59,8 +59,20 @@ const loadNotes = () => {
   }
 };
 
+//listing
+
+const listNotes = () => {
+  const notes = loadNotes();
+  console.log(chalk.bold.inverse("Your notes"));
+
+  notes.forEach((note) => {
+    console.log(note.title);
+  });
+};
+
 module.exports = {
   getNotes: getNotes,
   addNotes: addNotes,
   removeNotes: removeNotes,
+  listNotes: listNotes,
 };
